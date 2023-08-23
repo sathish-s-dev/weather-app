@@ -2,9 +2,12 @@
 
 // export default Container;
 
-function Container({ children }) {
+function Container(props) {
+	const { className, children } = props;
 	return (
-		<div className='max-w-5xl w-full flex flex-col mx-auto'>{children}</div>
+		<div className={`max-w-5xl w-full flex mx-auto ${className}`}>
+			{children}
+		</div>
 	);
 }
 

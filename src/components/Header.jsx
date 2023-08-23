@@ -9,7 +9,17 @@ const Header = () => {
 		{
 			id: 1,
 			name: 'Home',
-			href: '/',
+			href: '/weather-app',
+		},
+		{
+			id: 2,
+			name: 'Check Weather',
+			href: '/weather-app/checkWeather',
+		},
+		{
+			id: 3,
+			name: 'Contact us',
+			href: '/weather-app/contactUs',
 		},
 	];
 	return (
@@ -17,13 +27,16 @@ const Header = () => {
 			<Container>
 				<header className='flex justify-between py-4 px-6 text-yellow-50 items-center w-full '>
 					<div className='flex items-center'>
-						<img
-							src={weatherIcon}
-							alt=''
-							className='max-h-12 rounded-full'
-						/>
+						<NavLink to='/weather-app'>
+							<img
+								src={weatherIcon}
+								alt=''
+								className='max-h-12 rounded-full'
+							/>
+						</NavLink>
 						<h1 className='text-xl uppercase  font-semibold'>
-							Weather<span className='text-emerald-400 italic'>go</span>
+							Weather
+							<span className='text-emerald-400 italic text-2xl'>go</span>
 						</h1>
 					</div>
 					<div className='flex gap-6 items-center'>
@@ -48,7 +61,7 @@ const Header = () => {
 								Sign In
 							</a>
 						</SignedOut>
-						<AiOutlineMenu className='text-yellow-50 text-2xl block md:hidden' />
+						<AiOutlineMenu className='text-yellow-50 text-2xl block md:hidden hover:cursor-pointer hover:scale-105' />
 					</div>
 				</header>
 			</Container>

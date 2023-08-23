@@ -48,31 +48,30 @@ function WeatherWidget({ weatherData }) {
 	];
 
 	return (
-		<div className='flex gap-4 shadow-sm min-h-screen items-start mx-auto'>
+		<div className='flex gap-4 shadow-sm min-h-screen items-start mx-auto p-4'>
 			<div
-				className={`p-14 gap-10 w-4/5 ${
-					main === 'sunny' ? 'bg-orange-50' : ''
-				} flex justify-between mx-auto rounded-xl shadow-lg flex-col flex-1`}>
+				className={`p-14 gap-10 w-4/5 bg-slate-100
+				flex justify-between mx-auto rounded-xl shadow-lg flex-col flex-1`}>
 				<div className='flex gap-8 justify-center items-center sm:flex-row flex-col-reverse '>
-					<div className='text-slate-800 flex flex-col gap-4 justify-between sm:text-start text-center flex-1'>
+					<div className='text-slate-700 flex flex-col gap-4 justify-between sm:text-start text-center flex-1'>
 						<div>
 							<h3 className='text-lg'>
 								{name} {country}
 							</h3>
+							<p className=''>{description}</p>
 						</div>
 						<div>
-							<h2 className='text-2xl font-bold'>
+							<h2 className='text-4xl sm:text-6xl font-bold'>
 								{tempConv(temp)}
-								<span>°</span> C
+								<span>°</span>C
 							</h2>
-							<p className=''>{description}</p>
 						</div>
 					</div>
 					<div className='flex items-center justify-center'>
 						<img
 							src={img(images, icon)}
 							alt=''
-							className='rounded-full h-24'
+							className='rounded-full h-32 sm:h-20'
 						/>
 					</div>
 				</div>
@@ -81,9 +80,9 @@ function WeatherWidget({ weatherData }) {
 						return (
 							<div
 								key={item.id}
-								className='text-md flex flex-col'>
-								<p className='capitalize'>{item.name}</p>
-								<span className='block text-[0.8rem] text-slate-700'>
+								className='text-md flex flex-col text-slate-700 w-1/3'>
+								<p className='capitalize font-semibold'>{item.name}</p>
+								<span className='text-[0.8rem] text-slate-700'>
 									{item.value}
 								</span>
 							</div>

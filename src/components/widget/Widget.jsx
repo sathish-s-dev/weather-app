@@ -21,6 +21,7 @@ const Widget = () => {
 			console.log(error.message);
 		}
 	};
+	let data = value;
 
 	let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${long}&appid=c997cb3f79be4b19072deb5932e25a5d`;
 
@@ -43,10 +44,9 @@ const Widget = () => {
 		setLocation(searchData.value.split(' '));
 	};
 	return (
-		<Container>
+		<Container className='flex gap-6 min-h-[90vh] flex-col'>
 			<Search handleSearchData={handleSearchData} />
 			{weather?.weather ? <WeatherWidget weatherData={weather} /> : ''}
-			<button onClick={() => value()}>forecast</button>
 		</Container>
 	);
 };
