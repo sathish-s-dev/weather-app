@@ -17,7 +17,7 @@ function App() {
 			<Routes>
 				<Route
 					element={<Home />}
-					path='/'
+					path='/weather-app'
 				/>
 				<Route
 					element={<About />}
