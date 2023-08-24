@@ -1,33 +1,53 @@
 import './App.css';
 import { ClerkProvider } from '@clerk/clerk-react';
 import { Routes, Route } from 'react-router-dom';
-// import { router } from './routes';
+import { Provider } from './context/locationContext';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import Header from './components/Header';
 import Home from './components/home/Home';
-// import About from './components/about/About';
-import Widget from './components/widget/Widget';
+const Widget = lazy(() => import('./components/widget/Widget'));
 import Footer from './components/Footer';
 
 const clerkPubKey =
 	'pk_test_YXdhaXRlZC1zdGFybGluZy00OS5jbGVyay5hY2NvdW50cy5kZXYk'; //import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY;
-// console.log(clerkPubKey);
 
 function App() {
+	const [location, setLocation] = useState({ loaded: false, value: {} });
+	useEffect(() => {
+		navigator.geolocation.getCurrentPosition((position) => {
+			let lati = position.coords.latitude.toFixed(2);
+			let long = position.coords.longitude.toFixed(2);
+			setLocation({
+				loaded: true,
+				value: {
+					lati,
+					long,
+				},
+			});
+		});
+	});
 	return (
-		<ClerkProvider publishableKey={clerkPubKey}>
-			<Header />
-			<Routes>
-				<Route
-					element={<Home />}
-					path='/weather-app'
-				/>
-				<Route
-					element={<Widget />}
-					path='/weather-app/checkWeather'
-				/>
-			</Routes>
-			<Footer />
-		</ClerkProvider>
+		<Provider value={location}>
+			<ClerkProvider publishableKey={clerkPubKey}>
+				<Header />
+				<Routes>
+					<Route
+						element={<Home />}
+						path='/weather-app'
+					/>
+
+					<Route
+						element={
+							<Suspense fallback={<div>Loading...</div>}>
+								<Widget />
+							</Suspense>
+						}
+						path='/weather-app/checkWeather'
+					/>
+				</Routes>
+				<Footer />
+			</ClerkProvider>
+		</Provider>
 	);
 }
 

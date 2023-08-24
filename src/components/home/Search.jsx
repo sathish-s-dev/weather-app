@@ -11,7 +11,7 @@ const Search = ({ handleSearchData }) => {
 		handleSearchData(searchdata);
 	};
 	let loadOptions = async (inputValue) => {
-		const url = `https://wft-geo-db.p.rapidapi.com/v1/geo/cities?namePrefix=${inputValue}`;
+		const url = `https://wft-geo-db.p.rapidapi.com/v1/geo/cities?minPopulation=100000&namePrefix=${inputValue}`;
 
 		return fetch(url, options)
 			.then((res) => res.json())
