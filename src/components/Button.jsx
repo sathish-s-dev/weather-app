@@ -2,7 +2,7 @@
 import { NavLink } from 'react-router-dom';
 
 const NavButton = (props) => {
-	const { text, href, color, className } = props;
+	const { text, href, className } = props;
 	console.log(props);
 	return (
 		<NavLink

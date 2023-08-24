@@ -4,10 +4,10 @@ import Search from '../home/Search';
 import WeatherWidget from './WeatherWidget';
 import { useState } from 'react';
 import useFetch from '../hooks/useFetch';
-
 import { useContext } from 'react';
 import { LocationContext } from '../../context/locationContext';
 import DefaultValue from './DefaultValue';
+import ForeCast from '../forecast/ForeCast';
 
 const Widget = () => {
 	const [location, setLocation] = useState({ loaded: false, value: {} });
@@ -42,6 +42,7 @@ const Widget = () => {
 				''
 			)}
 			{weather?.weather ? <WeatherWidget weatherData={weather} /> : ''}
+			{/* <ForeCast /> */}
 		</Container>
 	);
 };

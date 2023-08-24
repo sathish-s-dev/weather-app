@@ -120,4 +120,7 @@ export const tempConv = (temp) => {
 	return temprature;
 };
 
-
+export const imgGetter = (images, icon) => {
+	const [val] = images.filter((i) => i.name === icon);
+	return val.value;
+};

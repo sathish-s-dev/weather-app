@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 // import sunnyIcon from '../../assets/sunny1.png';
-import { direction, tempConv, images } from '../../lib/widgetHelper';
+import { direction, tempConv, images, imgGetter } from '../../lib/widgetHelper';
+import WeatherItem from './WeatherItem';
 
 function WeatherWidget({ weatherData }) {
 	const {
@@ -11,15 +12,14 @@ function WeatherWidget({ weatherData }) {
 		wind: { speed, deg },
 	} = weatherData;
 
-	const { icon, description, main } = weather[0];
+	const { icon, description } = weather[0];
 
-	const img = (images, icon) => {
-		const [val] = images.filter((i) => i.name === icon);
-		// console.log(val);
-		return val.value;
-	};
+	// const img = (images, icon) => {
+	// 	const [val] = images.filter((i) => i.name === icon);
+	// 	return val.value;
+	// };
 
-	img(images, icon);
+	imgGetter(images, icon);
 
 	// let icon = weather[0].icon;
 	// console.log(icon);
@@ -69,7 +69,7 @@ function WeatherWidget({ weatherData }) {
 					</div>
 					<div className='flex items-center justify-center'>
 						<img
-							src={img(images, icon)}
+							src={imgGetter(images, icon)}
 							alt=''
 							className='rounded-full h-32 sm:h-20'
 						/>
@@ -78,14 +78,10 @@ function WeatherWidget({ weatherData }) {
 				<div className='flex justify-between w-full gap-4 flex-wrap'>
 					{WeatherItems.map((item) => {
 						return (
-							<div
+							<WeatherItem
+								item={item}
 								key={item.id}
-								className='text-md flex flex-col text-slate-700 w-1/3'>
-								<p className='capitalize font-semibold'>{item.name}</p>
-								<span className='text-[0.8rem] text-slate-700'>
-									{item.value}
-								</span>
-							</div>
+							/>
 						);
 					})}
 				</div>

@@ -1,56 +1,16 @@
 import { SignedOut, UserButton, SignedIn } from '@clerk/clerk-react';
 import { AiOutlineMenu } from 'react-icons/ai';
-import { NavLink } from 'react-router-dom';
-import weatherIcon from '../assets/weather1.png';
-
+import { mapItems } from '../lib/navItems';
+import NavItems from './NavItems';
+import HeaderLogo from './HeaderLogo';
 const Header = () => {
-	const navItems = [
-		{
-			id: 1,
-			name: 'Home',
-			href: '/weather-app',
-		},
-		{
-			id: 2,
-			name: 'Check Weather',
-			href: '/weather-app/checkWeather',
-		},
-		{
-			id: 3,
-			name: 'Contact us',
-			href: '/weather-app/contactUs',
-		},
-	];
+	const { navItems } = mapItems;
 	return (
 		<div className='bg-slate-950 w-full flex justify-center'>
 			<header className='flex justify-between py-4 px-6 text-yellow-50 items-center w-full  max-w-5xl'>
-				<NavLink to='/weather-app'>
-					<div className='flex items-center'>
-						<img
-							src={weatherIcon}
-							alt=''
-							className='max-h-12 rounded-full'
-						/>
-						<h1 className='text-xl uppercase  font-semibold'>
-							Weather
-							<span className='text-emerald-400 italic text-2xl'>go</span>
-						</h1>
-					</div>
-				</NavLink>
+				<HeaderLogo />
 				<div className='flex gap-6 items-center'>
-					<ul className='md:flex gap-6 hidden'>
-						{navItems.length > 0 &&
-							navItems.map((nav) => {
-								return (
-									<NavLink
-										to={nav.href}
-										className='cursor-pointer text-md font-semibold hover:scale-110 transition-all duration-300'
-										key={nav.id}>
-										{nav.name}
-									</NavLink>
-								);
-							})}
-					</ul>
+					<NavItems navItems={navItems} />
 					<SignedIn>
 						<UserButton />
 					</SignedIn>
@@ -65,5 +25,4 @@ const Header = () => {
 		</div>
 	);
 };
-
 export default Header;
