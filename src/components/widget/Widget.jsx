@@ -42,7 +42,7 @@ const Widget = () => {
 				''
 			)}
 			{weather?.weather ? <WeatherWidget weatherData={weather} /> : ''}
-			{/* <ForeCast /> */}
+			<ForeCast />	
 		</Container>
 	);
 };

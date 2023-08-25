@@ -11,8 +11,8 @@ const HeaderLogo = () => {
 					className='max-h-12 rounded-full'
 				/>
 				<h1 className='text-xl uppercase  font-semibold'>
-					Weather
-					<span className='text-emerald-400 italic text-2xl'>go</span>
+					We
+					<span className='text-emerald-400 italic text-2xl'>Cast</span>
 				</h1>
 			</div>
 		</NavLink>

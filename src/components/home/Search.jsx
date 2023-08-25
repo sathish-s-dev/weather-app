@@ -27,8 +27,9 @@ const Search = ({ handleSearchData }) => {
 			});
 	};
 	return (
-		<div>
+		<div className='px-4'>
 			<AsyncPaginate
+				className='w-full md:w-2/3 md:mx-auto'
 				placeholder='search cities...'
 				debounceTimeout={600}
 				value={search}

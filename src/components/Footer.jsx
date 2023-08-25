@@ -1,5 +1,3 @@
-import { TERipple } from 'tw-elements-react';
-
 const Footer = () => {
 	let footerIcons = [
 		{
@@ -90,15 +88,12 @@ Privacy Policy | Terms of Service
 					<div className=' flex justify-center gap-3 py-4'>
 						{footerIcons.map((icon) => {
 							return (
-								<TERipple
+								<a
 									key={icon.name}
-									rippleColor='light'>
-									<a
-										type='button'
-										className='m-1 h-7 w-7 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 hover: cursor-pointer'>
-										{icon.svg}
-									</a>
-								</TERipple>
+									type='button'
+									className='m-1 h-7 w-7 rounded-full border-2 border-white uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 hover: cursor-pointer'>
+									{icon.svg}
+								</a>
 							);
 						})}
 					</div>

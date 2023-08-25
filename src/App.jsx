@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Home from './components/home/Home';
 const Widget = lazy(() => import('./components/widget/Widget'));
 import Footer from './components/Footer';
+import Contact from './components/contact/Contact';
 
 const clerkPubKey =
 	'pk_test_YXdhaXRlZC1zdGFybGluZy00OS5jbGVyay5hY2NvdW50cy5kZXYk'; //import.meta.env.VITE_REACT_APP_CLERK_PUBLISHABLE_KEY;
@@ -43,6 +44,14 @@ function App() {
 							</Suspense>
 						}
 						path='/weather-app/checkWeather'
+					/>
+					<Route
+						element={
+							<Suspense fallback={<div>Loading...</div>}>
+								<Contact />
+							</Suspense>
+						}
+						path='/weather-app/contactUs'
 					/>
 				</Routes>
 				<Footer />

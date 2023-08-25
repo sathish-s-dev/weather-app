@@ -50,10 +50,10 @@ function WeatherWidget({ weatherData }) {
 	return (
 		<div className='flex gap-4 shadow-sm min-h-screen items-start mx-auto p-4'>
 			<div
-				className={`p-14 gap-10 w-4/5 bg-slate-100
+				className={`p-14 gap-10 w-4/5 bg-slate-100 dark:bg-slate-800
 				flex justify-between mx-auto rounded-xl shadow-lg flex-col flex-1`}>
 				<div className='flex gap-8 justify-center items-center sm:flex-row flex-col-reverse '>
-					<div className='text-slate-700 flex flex-col gap-4 justify-between sm:text-start text-center flex-1'>
+					<div className='text-slate-700 dark:text-slate-100 flex flex-col gap-4 justify-between sm:text-start text-center flex-1'>
 						<div>
 							<h3 className='text-lg'>
 								{name} {country}

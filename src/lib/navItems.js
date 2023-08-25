@@ -7,7 +7,7 @@ export const mapItems = {
 		},
 		{
 			id: 2,
-			name: 'Check Weather',
+			name: 'Check now',
 			href: '/weather-app/checkWeather',
 		},
 		{
@@ -16,5 +16,4 @@ export const mapItems = {
 			href: '/weather-app/contactUs',
 		},
 	],
-  
 };
