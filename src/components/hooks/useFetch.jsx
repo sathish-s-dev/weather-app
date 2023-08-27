@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const useFetch = (url, location) => {
+const useFetch = (url, value) => {
 	const [data, setData] = useState([]);
 
 	useEffect(() => {
@@ -14,7 +14,7 @@ const useFetch = (url, location) => {
 			}
 		};
 		getData();
-	}, [location]);
+	}, [value]);
 
 	return data;
 };

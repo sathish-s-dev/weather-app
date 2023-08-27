@@ -2,8 +2,8 @@ export let valueData = {
 	cod: '200',
 	message: 0,
 	cnt: 40,
-	list: Array(40)[
-		({
+	list: [
+		{
 			dt: 1692802800,
 			main: {
 				temp: 272.48,
@@ -1105,7 +1105,7 @@ export let valueData = {
 			pop: 0,
 			sys: { pod: 'd' },
 			dt_txt: '2023-08-28 12:00:00',
-		})
+		},
 	],
 	city: {
 		id: 2729907,
@@ -1122,8 +1122,8 @@ valueData = {
 	cod: '200',
 	message: 0,
 	cnt: 40,
-	list: Array(40)[
-		({
+	list: [
+		{
 			dt: 1692802800,
 			main: {
 				temp: 305.22,
@@ -2170,7 +2170,7 @@ valueData = {
 			pop: 0,
 			sys: { pod: 'd' },
 			dt_txt: '2023-08-28 12:00:00',
-		})
+		},
 	],
 	city: {
 		id: 1253286,

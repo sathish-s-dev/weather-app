@@ -15,7 +15,6 @@ function DefaultValue({ defaultLocation }) {
 				.then((json) => setDweather(json));
 		}
 	};
-
 	useEffect(() => {
 		GetData();
 	}, []);
@@ -25,8 +24,6 @@ function DefaultValue({ defaultLocation }) {
 }
 
 export default DefaultValue;
-
-
 
 // const GetData = () => {
 // 	console.log('getdata called');

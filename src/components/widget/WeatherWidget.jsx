@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 // import sunnyIcon from '../../assets/sunny1.png';
-import { direction, tempConv, images, imgGetter } from '../../lib/widgetHelper';
+import { direction, images, imgGetter } from '../../lib/widgetHelper';
 import WeatherItem from './WeatherItem';
 
 function WeatherWidget({ weatherData }) {
@@ -38,7 +38,7 @@ function WeatherWidget({ weatherData }) {
 		{
 			id: 3,
 			name: 'feels_like:',
-			value: `${tempConv(feels_like)}° c`,
+			value: `${Math.round(feels_like)}° c`,
 		},
 		{
 			id: 4,
@@ -48,7 +48,7 @@ function WeatherWidget({ weatherData }) {
 	];
 
 	return (
-		<div className='flex gap-4 shadow-sm min-h-screen items-start mx-auto p-4'>
+		<div className='flex gap-4 shadow-sm min-h-fit items-start mx-auto p-4'>
 			<div
 				className={`p-14 gap-10 w-4/5 bg-slate-100 dark:bg-slate-800
 				flex justify-between mx-auto rounded-xl shadow-lg flex-col flex-1`}>
@@ -62,7 +62,7 @@ function WeatherWidget({ weatherData }) {
 						</div>
 						<div>
 							<h2 className='text-4xl sm:text-6xl font-bold'>
-								{tempConv(temp)}
+								{Math.round(temp)}
 								<span>°</span>C
 							</h2>
 						</div>

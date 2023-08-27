@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import weatherIcon from '../assets/weather1.png';
+import weatherIcon from '../assets/weather1.webp';
 
 const HeaderLogo = () => {
 	return (

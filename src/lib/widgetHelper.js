@@ -114,11 +114,11 @@ export const direction = (deg) => {
 	}
 };
 
-export const tempConv = (temp) => {
-	let temprature = temp - 273.15;
-	temprature = temprature.toFixed(1);
-	return temprature;
-};
+// export const tempConv = (temp) => {
+// 	let temprature = temp - 273.15;
+// 	temprature = temprature.toFixed(1);
+// 	return temprature;
+// };
 
 export const imgGetter = (images, icon) => {
 	const [val] = images.filter((i) => i.name === icon);

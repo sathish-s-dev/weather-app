@@ -26,35 +26,36 @@ function App() {
 			});
 		});
 	});
+
 	return (
 		<Provider value={location}>
-			<ClerkProvider publishableKey={clerkPubKey}>
-				<Header />
-				<Routes>
-					<Route
-						element={<Home />}
-						path='/weather-app'
-					/>
+			{/* <ClerkProvider publishableKey={clerkPubKey}> */}
+			<Header />
+			<Routes>
+				<Route
+					element={<Home />}
+					path='/weather-app'
+				/>
 
-					<Route
-						element={
-							<Suspense fallback={<div>Loading...</div>}>
-								<Widget />
-							</Suspense>
-						}
-						path='/weather-app/checkWeather'
-					/>
-					<Route
-						element={
-							<Suspense fallback={<div>Loading...</div>}>
-								<Contact />
-							</Suspense>
-						}
-						path='/weather-app/contactUs'
-					/>
-				</Routes>
-				<Footer />
-			</ClerkProvider>
+				<Route
+					element={
+						<Suspense fallback={<div>Loading...</div>}>
+							<Widget />
+						</Suspense>
+					}
+					path='/weather-app/checkWeather'
+				/>
+				<Route
+					element={
+						<Suspense fallback={<div>Loading...</div>}>
+							<Contact />
+						</Suspense>
+					}
+					path='/weather-app/contactUs'
+				/>
+			</Routes>
+			<Footer />
+			{/* </ClerkProvider> */}
 		</Provider>
 	);
 }
