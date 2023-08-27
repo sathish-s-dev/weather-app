@@ -6,6 +6,7 @@ import { lazy, Suspense, useEffect, useState } from 'react';
 import Header from './components/Header';
 import Home from './components/home/Home';
 const Widget = lazy(() => import('./components/widget/Widget'));
+// import Widget from './components/widget/Widget';
 import Footer from './components/Footer';
 import Contact from './components/contact/Contact';
 const clerkPubKey =
@@ -25,7 +26,7 @@ function App() {
 				},
 			});
 		});
-	});
+	}, []);
 
 	return (
 		<Provider value={location}>

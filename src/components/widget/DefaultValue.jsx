@@ -9,7 +9,7 @@ function DefaultValue({ defaultLocation }) {
 		let { lati, long } = defaultLocation.value;
 		if (lati && long) {
 			fetch(
-				`https://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${long}&appid=c997cb3f79be4b19072deb5932e25a5d`
+				`https://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${long}&appid=c997cb3f79be4b19072deb5932e25a5d&units=metric`
 			)
 				.then((res) => res.json())
 				.then((json) => setDweather(json));

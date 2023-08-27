@@ -2,23 +2,37 @@
 import Container from '../Container';
 import Search from '../home/Search';
 import WeatherWidget from './WeatherWidget';
-import { useState } from 'react';
-import useFetch from '../hooks/useFetch';
+import { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import { LocationContext } from '../../context/locationContext';
 import DefaultValue from './DefaultValue';
 import ForeCast from '../forecast/ForeCast';
 import DefaultForecast from '../forecast/DefaultForecast';
+import axios from 'axios';
 
 const Widget = () => {
 	const [location, setLocation] = useState({ loaded: false, value: {} });
+	const [weather, setWeather] = useState([]);
 
 	let defaultLocation = useContext(LocationContext);
 
-	let weather = useFetch(
-		`https://api.openweathermap.org/data/2.5/weather?lat=${location.value.lati}&lon=${location.value.long}&appid=c997cb3f79be4b19072deb5932e25a5d&units=metric`,
-		location
-	);
+	// let weather = useFetch(
+
+	// 	location
+	// );
+	useEffect(() => {
+		if (location?.value) {
+			let { lati, long } = location.value;
+			console.log(lati, long);
+			if ((lati, long)) {
+				axios
+					.request(
+						`https://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${long}&appid=c997cb3f79be4b19072deb5932e25a5d&units=metric`
+					)
+					.then((res) => setWeather(res.data));
+			}
+		}
+	}, [location]);
 
 	const handleSearchData = (searchData) => {
 		setLocation({
@@ -38,8 +52,12 @@ const Widget = () => {
 				''
 			)}
 			{weather?.weather ? <WeatherWidget weatherData={weather} /> : ''}
-			<ForeCast location={location} />
-			<DefaultForecast defaultLocation={defaultLocation} />
+			{location?.loaded ? <ForeCast location={location} /> : ''}
+			{!location.loaded ? (
+				<DefaultForecast defaultLocation={defaultLocation} />
+			) : (
+				''
+			)}
 		</Container>
 	);
 };
