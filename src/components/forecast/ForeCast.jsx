@@ -22,7 +22,7 @@ function ForeCast({ location }) {
 	const [value, setValue] = useState([]);
 	useEffect(() => {
 		if (location?.loaded) {
-			let val = axios
+			axios
 				.request(
 					`https://api.openweathermap.org/data/2.5/forecast?lat=${location.value.lati}&lon=${location.value.long}&appid=c997cb3f79be4b19072deb5932e25a5d&units=metric`
 				)
@@ -30,7 +30,7 @@ function ForeCast({ location }) {
 					let { list: data } = res.data;
 					setValue(data);
 				});
-			console.log(val);
+			// console.log(val);
 		}
 		// let { list: data } = val.data;
 		// setValue(data);

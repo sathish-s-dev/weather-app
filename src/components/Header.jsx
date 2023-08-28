@@ -1,4 +1,4 @@
-import { SignedOut, UserButton, SignedIn } from '@clerk/clerk-react';
+// import { SignedOut, UserButton, SignedIn } from '@clerk/clerk-react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { mapItems } from '../lib/navItems';
 import NavItems from './NavItems';

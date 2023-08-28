@@ -14,7 +14,6 @@ import AccordianHeading from './AccordianHeading';
 
 function ForeCastTemplate({ value }) {
 	let [length, setLength] = useState(5);
-	console.log(value);
 	return (
 		<div className='flex flex-col    dark:text-slate-100 w-full gap-4 p-10 rounded-lg flex-wrap bg-blue-300  bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-gray-100'>
 			<h2 className='text-xl'>Hourly Forecast:</h2>

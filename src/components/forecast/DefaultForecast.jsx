@@ -7,7 +7,7 @@ function DefaultForecast({ defaultLocation }) {
 	const [dvalue, setDvalue] = useState([]);
 	// console.log(defaultLocation);
 	useEffect(() => {
-		console.log(defaultLocation.value);
+		// console.log(defaultLocation.value);
 		if (defaultLocation.value.lati) {
 			let { lati, long } = defaultLocation.value;
 			if (lati && long) {
@@ -22,7 +22,7 @@ function DefaultForecast({ defaultLocation }) {
 			}
 		}
 	}, []);
-	console.log(dvalue);
+	// console.log(dvalue);
 	return <ForeCastTemplate value={dvalue} />;
 }
 

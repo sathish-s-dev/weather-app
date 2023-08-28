@@ -23,7 +23,6 @@ const Widget = () => {
 	useEffect(() => {
 		if (location?.value) {
 			let { lati, long } = location.value;
-			console.log(lati, long);
 			if ((lati, long)) {
 				axios
 					.request(
